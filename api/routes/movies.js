@@ -15,7 +15,29 @@ router.post('/:id', verify, async (req, res) => {
       res.status(500).json(err)
     }
   } else {
-    res.status(403).json('You can update only your account!')
+    res.status(403).json('You are not allowed')
+  }
+})
+
+// Update
+router.put('/:id', verify, async (req, res) => {
+  if (req.user.isAdmin) {
+    try {
+      const updateMovie = await Movie.findByIdAndUpdate(
+        req.params.id,
+        {
+          $set: req.body,
+        },
+        {
+          new: true,
+        },
+      )
+      res.status(200).json(savedMovie)
+    } catch (err) {
+      res.status(500).json(err)
+    }
+  } else {
+    res.status(403).json('You are not allowed!')
   }
 })
 // Delete
