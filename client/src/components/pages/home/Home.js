@@ -4,11 +4,11 @@ import Navbar from '../../navbar/Navbar'
 import './home.scss'
 import List from '../../list/List'
 
-const Home = () => {
+const Home = ({ type }) => {
   return (
     <div className='home'>
       <Navbar />
-      <Featured type={'movie'} />
+      <Featured type={type} />
       <List />
       <List />
       <List />
