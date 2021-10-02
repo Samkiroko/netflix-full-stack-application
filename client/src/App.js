@@ -6,7 +6,7 @@ import Watch from './components/pages/watch/Watch'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 
 function App() {
-  const user = false
+  const user = true
   return (
     <Router>
       <Switch>
